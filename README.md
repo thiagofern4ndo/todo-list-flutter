@@ -14,17 +14,4 @@ Este é um aplicativo simples e intuitivo para gerenciar suas tarefas diárias. 
 ## 🚀 Tecnologias Utilizadas  
 
 - Flutter (Dart)  
-- Gerenciamento de Estado (Provider, Riverpod, MobX, etc.)  
-- Banco de Dados Local (SQLite, Hive ou SharedPreferences)  
-- Notificações Push  
 
-## 📷 Capturas de Tela  
-
-> *(Adicione imagens do app aqui para demonstrar a interface e experiência do usuário.)*  
-
-## 📥 Instalação  
-
-1. Clone o repositório:  
-   ```bash
-   git clone https://github.com/seu-usuario/nome-do-repositorio.git
-   cd nome-do-repositorio
