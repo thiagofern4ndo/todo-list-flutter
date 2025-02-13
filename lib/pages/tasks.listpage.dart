@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class TasksListPage extends StatelessWidget {
-  const TasksListPage({super.key});
+   TasksListPage({super.key});
+
+  final List tasks = [];
 
   @override
   Widget build(BuildContext context) {
@@ -14,11 +16,10 @@ class TasksListPage extends StatelessWidget {
         ),
         body: Padding(
           padding: const EdgeInsets.all(10),
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 5),
-                child: Card(
+          child: ListView.builder(
+            itemCount: 6,
+            itemBuilder: (ctx, index) {
+              return Card(
                   elevation: 3,
                   color: Colors.indigo[100],
                   shape: RoundedRectangleBorder(
@@ -30,20 +31,22 @@ class TasksListPage extends StatelessWidget {
                       onChanged: (value) {},
                       value: false,
                     ),
-                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15)),
-                    trailing: Icon(Icons.star, color: Colors.indigo,),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15)),
+                    trailing: Icon(
+                      Icons.star,
+                      color: Colors.indigo,
+                    ),
                     onTap: () {},
                   ),
-                ),
-              ),
-            ],
+                );
+            },
           ),
         ),
         floatingActionButton: FloatingActionButton.extended(
           onPressed: () {},
-          label: const Text('Adicionar'),
-          icon: const Icon(Icons.add), // Material Icons
+          label: const Text('Nova Tarefa'),
+          icon: const Icon(Icons.add),
         ),
       ),
     );
