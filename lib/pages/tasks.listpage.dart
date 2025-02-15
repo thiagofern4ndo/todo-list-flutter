@@ -1,9 +1,13 @@
+import 'package:first_app/models/task.model.dart';
 import 'package:flutter/material.dart';
 
 class TasksListPage extends StatelessWidget {
    TasksListPage({super.key});
 
-  final List tasks = [];
+  final List<Task>tasks = [
+    Task(title: 'Reunião Projeto', description: 'Definir tecnologias', important: true),
+     Task(title: 'Reunião Projeto', description: 'Definir template'),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -17,24 +21,29 @@ class TasksListPage extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsets.all(10),
           child: ListView.builder(
-            itemCount: 6,
+            itemCount: tasks.length,
             itemBuilder: (ctx, index) {
+
+              final task = tasks[index];
+
               return Card(
                   elevation: 3,
                   color: Colors.indigo[100],
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15)),
                   child: ListTile(
-                    title: const Text('Marcar Reunião'),
-                    subtitle: Text('Reunião sobre projeto final'),
+                    title:  Text(task.title),
+                    subtitle: task.description != null ? Text(task.description!) : null,
                     leading: Checkbox(
-                      onChanged: (value) {},
-                      value: false,
+                      onChanged: (value) {
+                        task.changeStatus(value!);
+                      },
+                      value: task.completed,
                     ),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15)),
                     trailing: Icon(
-                      Icons.star,
+                     task.important ? Icons.star : Icons.star_border,
                       color: Colors.indigo,
                     ),
                     onTap: () {},

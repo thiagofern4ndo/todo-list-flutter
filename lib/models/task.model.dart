@@ -9,4 +9,8 @@ class Task {
     this.description,
     this.important = false,
   }) : completed = false;
+
+  changeStatus (bool status) {
+    completed = status;
+  }
 }
